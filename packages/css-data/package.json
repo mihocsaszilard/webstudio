@@ -1,0 +1,50 @@
+{
+  "name": "@webstudio-is/css-data",
+  "version": "0.0.0",
+  "description": "CSS Data",
+  "author": "Webstudio <github@webstudio.is>",
+  "homepage": "https://webstudio.is",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc",
+    "build:html.css": "tsx ./bin/html.css.ts && prettier --write ./src/__generated__/html.ts",
+    "build:mdn-data": "tsx ./bin/mdn-data.ts ./src/__generated__ &&  prettier --write \"./src/__generated__/\" \"../css-engine/src/__generated__/\"",
+    "build:descriptions": "tsx ./bin/property-value-descriptions.ts && prettier --write ./src/__generated__/property-value-descriptions.ts",
+    "test": "vitest run"
+  },
+  "bin": {
+    "css-to-ws": "./bin/css-to-ws.ts"
+  },
+  "devDependencies": {
+    "@types/css-tree": "^2.3.1",
+    "@types/node": "^22.9.1",
+    "@webstudio-is/react-sdk": "workspace:*",
+    "@webstudio-is/tsconfig": "workspace:*",
+    "html-tags": "^4.0.0",
+    "mdn-data": "2.8.0",
+    "type-fest": "^4.27.0",
+    "typescript": "5.6.3",
+    "vitest": "^2.1.5",
+    "zod": "^3.22.4"
+  },
+  "peerDependencies": {
+    "zod": "^3.19.1"
+  },
+  "exports": {
+    "webstudio": "./src/index.ts"
+  },
+  "license": "AGPL-3.0-or-later",
+  "private": true,
+  "sideEffects": false,
+  "dependencies": {
+    "@unocss/core": "^0.61.2",
+    "@unocss/preset-uno": "^0.61.2",
+    "@webstudio-is/css-engine": "workspace:*",
+    "change-case": "^5.4.4",
+    "colord": "^2.9.3",
+    "css-tree": "^2.3.1",
+    "openai": "^3.2.1",
+    "p-retry": "^6.2.0",
+    "warn-once": "^0.1.1"
+  }
+}
